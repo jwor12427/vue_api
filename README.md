@@ -1,4 +1,5 @@
 # vue_api
 
-## Project setup
+## Firebase 호스팅
+https://vueapi02.web.app/
 
