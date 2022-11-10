@@ -3,7 +3,24 @@
 <template>
 	<div>
 		<HeaderCont />
-		<TitleCont />
+		<TitleCont name1="reference" name2="api" />
+		<section class="cont__refer">
+			<div class="container">
+				<div class="refer__inner">
+					<h2>CSS</h2>
+					<ul class="refer__list">
+						<li v-for="refer in refers" :key="refer.title">
+							<a href="#">
+								<span class="num">{{ refer.num }}</span>
+								<span class="name">{{ refer.title }}</span>
+								<span class="desc">{{ refer.desc }}</span>
+								<span class="star">{{ refer.descStar }}</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
 		<FooterCont />
 		<ContactCont />
 	</div>
@@ -14,6 +31,7 @@ import HeaderCont from '@/components/HeaderCont.vue';
 import FooterCont from '@/components/FooterCont.vue';
 import TitleCont from '@/components/TitleCont.vue';
 import ContactCont from '@/components/ContactCont.vue';
+import { ref } from 'vue';
 export default {
 	components: {
 		HeaderCont,
@@ -21,5 +39,64 @@ export default {
 		TitleCont,
 		ContactCont,
 	},
+
+	setup() {
+		const refers = ref([]);
+
+		const reference = () => {
+			fetch('https://jwor12427.github.io/react_api/src/utils/reference.json')
+				.then(response => response.json())
+				// .then(result => console.log(result))
+				.then(result => (refers.value = result.cssRefer))
+				.catch(error => console.log('error', error));
+		};
+		reference();
+
+		return {
+			refers,
+			reference,
+		};
+	},
 };
 </script>
+<style lang="scss">
+.refer__list {
+	border: 1px solid var(--bg-light-border);
+	li {
+		border-bottom: 1px solid var(--bg-light-border);
+		box-sizing: border-box;
+		a {
+			display: flex;
+			align-items: center;
+			width: 100%;
+			color: var(--black);
+
+			span {
+				display: inline-block;
+				padding: 15px 20px;
+				box-sizing: border-box;
+			}
+
+			.num {
+				flex: 1 1 5%;
+				text-align: center;
+				border-right: 1px solid var(--bg-light-border);
+			}
+			.name {
+				flex: 1 1 18%;
+				border-right: 1px solid var(--bg-light-border);
+			}
+			.desc {
+				flex: 1 1 72%;
+				border-right: 1px solid var(--bg-light-border);
+				font-family: var(--font-kor2);
+				font-size: 14px;
+			}
+			.star {
+				flex: 1 1 5%;
+				text-align: center;
+			}
+		}
+	}
+}
+</style>
