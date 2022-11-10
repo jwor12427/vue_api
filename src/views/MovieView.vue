@@ -21,6 +21,10 @@
 								modifier: 1,
 								slideShadows: true,
 							}"
+							:autoplay="{
+								delay: 3000,
+								disableOnInteraction: false,
+							}"
 							:pagination="true"
 							:modules="modules"
 							:initialSlide="3"
@@ -97,7 +101,7 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 // import required modules
-import { EffectCoverflow, Pagination } from 'swiper';
+import { Autoplay, EffectCoverflow, Pagination } from 'swiper';
 import { ref } from 'vue';
 export default {
 	components: {
@@ -143,7 +147,7 @@ export default {
 			search,
 			SearchMovies,
 			TopMovies,
-			modules: [EffectCoverflow, Pagination],
+			modules: [Autoplay, EffectCoverflow, Pagination],
 		};
 	},
 };
