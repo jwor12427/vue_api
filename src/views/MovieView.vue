@@ -238,6 +238,7 @@ export default {
 			background-position: center;
 			background-size: cover;
 			width: 300px;
+			height: 500px;
 			.swiper-slide img {
 				display: block;
 				width: 100%;

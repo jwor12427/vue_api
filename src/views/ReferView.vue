@@ -3,7 +3,7 @@
 <template>
 	<div>
 		<HeaderCont />
-		<TitleCont name1="reference" name2="api" />
+		<TitleCont name1="css" name2="reference api" />
 		<section class="cont__refer">
 			<div class="container">
 				<div class="refer__inner">
@@ -61,7 +61,7 @@ export default {
 </script>
 <style lang="scss">
 .refer__list {
-	border: 1px solid var(--bg-light-border);
+	border-bottom: 1px solid var(--bg-light-border);
 	li {
 		border-bottom: 1px solid var(--bg-light-border);
 		box-sizing: border-box;
@@ -80,15 +80,13 @@ export default {
 			.num {
 				flex: 1 1 5%;
 				text-align: center;
-				border-right: 1px solid var(--bg-light-border);
 			}
 			.name {
 				flex: 1 1 18%;
-				border-right: 1px solid var(--bg-light-border);
 			}
 			.desc {
 				flex: 1 1 72%;
-				border-right: 1px solid var(--bg-light-border);
+
 				font-family: var(--font-kor2);
 				font-size: 14px;
 			}
